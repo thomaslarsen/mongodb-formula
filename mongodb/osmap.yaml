@@ -2,3 +2,10 @@ Debian:
   use_repo: True
   mongodb_package: mongodb-org
   mongos_package: mongodb-org-mongos
+
+RedHat:
+  mongodb_package: mongodb-server
+  mongos_package: mongos
+  pip: python-pip
+  mongod: mongod
+  conf_path: /etc/mongod.conf

@@ -18,22 +18,27 @@ mongodb_package:
   pkg.installed:
      - name: {{ mdb.mongodb_package }}
 
-mongodb_db_path:
+{{ mdb.settings.db_path }}:
   file.directory:
-    - name: {{ mdb.db_path }}
-    - user: mongodb
-    - group: mongodb
+    - user: {{ mdb.user }}
+    - group: {{ mdb.group }}
     - mode: 755
     - makedirs: True
     - recurse:
         - user
         - group
 
-mongodb_log_path:
+{{ mdb.settings.pid_path }}:
   file.directory:
-    - name: {{ mdb.log_path }}
-    - user: mongodb
-    - group: mongodb
+    - user: {{ mdb.user }}
+    - group: {{ mdb.group }}
+    - mode: 755
+    - makedirs: True
+
+{{ mdb.settings.log_path }}:
+  file.directory:
+    - user: {{ mdb.user }}
+    - group: {{ mdb.group }}
     - mode: 755
     - makedirs: True
 

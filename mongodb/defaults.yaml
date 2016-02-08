@@ -1,30 +1,28 @@
+# -*- coding: utf-8 -*-
 mongodb:
   mongodb_package: mongodb
   mongos_package: mongos
   pip: python-pip
   mongod: mongodb
-
+  user: mongodb
+  group: mongodb
   conf_path: /etc/mongodb.conf
-  log_path: /var/log/mongodb
-  log_append: True
-  db_path: /data/db
+  
   use_repo: False
   version: stable
   use_ppa: False
   repo_component: main
-
-  config_svr: False
-  shard_svr: True
-  rest: False
-
-  replica_set:
-    name: null
-
-  storage_engine: null
-
+  
   settings:
     port: 27017
     bind_ip: 127.0.0.1
+    config_svr: False
+    shard_svr: True
+    rest: False
+    log_path: /var/log/mongodb
+    pid_path: /var/run/mongodb
+    db_path: /data/db
+    log_append: True
 
 mongos:
   mongos_package: mongos
@@ -32,10 +30,10 @@ mongos:
   log_file: /var/log/mongos/mongos.log
   conf_path: /etc/mongodb.conf
   mongos: mongos
-
+  
   use_repo: False
   use_ppa: False
-
+  
   settings:
     port: 27017
     config_svrs: ""
