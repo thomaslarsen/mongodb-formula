@@ -117,7 +117,11 @@ logappend = {{ mdb.settings.log_append }}
 #quotaFiles = 8
 
 # Use a smaller default file size (false by default)
+{% if mdb.settings.smallfiles is defined -%}
+smallfiles = {{ mdb.settings.smallfiles }}
+{% else -%}
 #smallfiles = true
+{% endif -%}
 
 # Seconds between disk syncs (0=never, but not recommended) (60 by default)
 #syncdelay = 60
